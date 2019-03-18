@@ -1,9 +1,7 @@
 from django.conf.urls import patterns, include, url
 import views
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^interfacedefmanage',views.inDefManage),
-     url(r'^login', views.login),
-    
-)
+urlpatterns = [
+    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', views.login)
+]
