@@ -1,11 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
 from django.views.generic import View
 # Create your views here.
-# from  templates import *
-class login(View):
+
+class login():
     def get(self,request):
         return render(request,'login.html')
     def post(self,request):
