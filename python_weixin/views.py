@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import View
 # Create your views here.
 
+from django.shortcuts import *
+from response import JSONResponse
 def login(request):
     method=request.method
     print  "method====",method
@@ -16,3 +18,11 @@ def login(request):
     else:
         return render(request,'python_weixin/login.html')
 
+def checkSignature(request):
+    respones_param={}
+    params=request.GET.items()
+    for i in params:
+        key=i[0]
+        values=i[1]
+        respones_param[key]=values
+    return JSONResponse(respones_param)

@@ -3,5 +3,6 @@ import views
 
 urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^login/', views.login)
+    url(r'^login/', views.login),
+    url(r'^checkSignature/', views.checkSignature)
 ]
