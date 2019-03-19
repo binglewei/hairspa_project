@@ -38,6 +38,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+MY_APPS=(
+    'python_weixin'
+)
+INSTALLED_APPS +=MY_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -52,10 +56,26 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'hairspa_project.urls'
 
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +100,23 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+#mysql_data
+# DATABASES = {
+#     #'default': {
+#     #    'ENGINE': 'django.db.backends.sqlite3',
+#     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     #},
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "hairspa",
+#         "USER": "root",
+#         "PASSWORD": "123456",
+#         "HOST": "10.0.0.127",
+#         "PORT": "3306",
+#         'TEST_CHARSET': "utf8",
+#         'TEST_COLLATION': "utf8_general_ci",
+#     },
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
