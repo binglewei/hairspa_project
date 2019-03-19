@@ -87,7 +87,11 @@ TEMPLATES = [
         },
     },
 ]
+TEMPLATE_DIRS = (
+os.path.join(BASE_DIR, 'templates'),
+)
 
+print  TEMPLATES
 WSGI_APPLICATION = 'hairspa_project.wsgi.application'
 
 
