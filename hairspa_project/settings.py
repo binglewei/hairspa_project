@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 MY_APPS=(
-    'python_weixin'
+    'python_weixin',
 )
 INSTALLED_APPS +=MY_APPS
 
