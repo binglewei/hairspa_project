@@ -12,5 +12,5 @@ def login(request):
         USER_INPUT.append(temp)
         return render(request,'login.html',{'data':USER_INPUT})
     else:
-        return render(request,'login.html')
+        return render(request,'python_weixin/login.html')
 
