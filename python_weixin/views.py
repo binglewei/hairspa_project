@@ -5,9 +5,9 @@ from django.views.generic import View
 # Create your views here.
 
 from django.shortcuts import *
-from response import JSONResponse
+# from response import JSONResponse
 import hashlib
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 def login(request):
     method=request.method
     print  "method====",method
@@ -43,13 +43,19 @@ def checkSignature(request):
     # # sha1加密算法
     #
     # 如果是来自微信的请求，则回复echostr
+    respones=HttpResponse()
+
+    # respones.content("adfasfasdfas")
+    # respones.status_code(500)
     if hashcode == signature:
         # print "hashcode == signaturehashcode == signature"
         # return JSONResponse({"echostr":echostr})
-        return  HttpResponse(echostr)
+        respones.write(echostr)
+        return  respones
     print "hashcode",hashcode
+    respones_param["hashcode"]=hashcode
     # sorted_x = sorted(respones_param.iteritems(), key=lambda param: param[0])
     # str_data=""
     # for tuple in sorted_x:
     #     str_data += str(tuple[0]) + str(tuple[1])
-    return JSONResponse(respones_param)
+    return JsonResponse(respones_param)
