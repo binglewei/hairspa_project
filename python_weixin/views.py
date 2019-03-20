@@ -1,3 +1,5 @@
+# /usr/bin/env python
+# coding=utf-8
 from django.shortcuts import render
 from django.views.generic import View
 # Create your views here.
@@ -31,19 +33,21 @@ def checkSignature(request):
     nonce=request.GET.get("nonce",None)
     echostr=request.GET.get("echostr",None)
     token="binglewei"
-    # 字典序排序
+    #字典序排序
     list = [token, timestamp, nonce]
     list.sort()
     sha1 = hashlib.sha1()
     map(sha1.update, list)
     hashcode = sha1.hexdigest()
-    # sha1加密算法
-
+    # # sha1加密算法
+    #
     # 如果是来自微信的请求，则回复echostr
     if hashcode == signature:
-        return echostr
-    sorted_x = sorted(respones_param.iteritems(), key=lambda param: param[0])
-    str_data=""
-    for tuple in sorted_x:
-        str_data += str(tuple[0]) + str(tuple[1])
+        # print "hashcode == signaturehashcode == signature"
+        return JSONResponse({"echostr":echostr})
+    print "hashcode",hashcode
+    # sorted_x = sorted(respones_param.iteritems(), key=lambda param: param[0])
+    # str_data=""
+    # for tuple in sorted_x:
+    #     str_data += str(tuple[0]) + str(tuple[1])
     return JSONResponse(respones_param)
