@@ -46,7 +46,7 @@ INSTALLED_APPS +=MY_APPS
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -98,29 +98,29 @@ WSGI_APPLICATION = 'hairspa_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-#mysql_data
 # DATABASES = {
-#     #'default': {
-#     #    'ENGINE': 'django.db.backends.sqlite3',
-#     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     #},
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "hairspa",
-#         "USER": "root",
-#         "PASSWORD": "123456",
-#         "HOST": "10.0.0.127",
-#         "PORT": "3306",
-#         'TEST_CHARSET': "utf8",
-#         'TEST_COLLATION': "utf8_general_ci",
-#     },
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 # }
+#mysql_data
+DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #},
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "hairspa",
+        "USER": "root",
+        "PASSWORD": "123456",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+        'TEST_CHARSET': "utf8",
+        'TEST_COLLATION': "utf8_general_ci",
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
