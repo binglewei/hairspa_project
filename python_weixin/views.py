@@ -7,6 +7,7 @@ from django.views.generic import View
 from django.shortcuts import *
 from response import JSONResponse
 import hashlib
+from django.http import HttpResponse
 def login(request):
     method=request.method
     print  "method====",method
@@ -44,7 +45,8 @@ def checkSignature(request):
     # 如果是来自微信的请求，则回复echostr
     if hashcode == signature:
         # print "hashcode == signaturehashcode == signature"
-        return JSONResponse({"echostr":echostr})
+        # return JSONResponse({"echostr":echostr})
+        return  HttpResponse(echostr)
     print "hashcode",hashcode
     # sorted_x = sorted(respones_param.iteritems(), key=lambda param: param[0])
     # str_data=""
