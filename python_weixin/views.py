@@ -28,10 +28,10 @@ def checkSignature(request):
         key=i[0]
         values=i[1]
         respones_param[key]=values
-    signature=request.GET.get("signature",None)
-    timestamp=request.GET.get("timestamp",None)
-    nonce=request.GET.get("nonce",None)
-    echostr=request.GET.get("echostr",None)
+    signature=request.GET.get("signature","")
+    timestamp=request.GET.get("timestamp","")
+    nonce=request.GET.get("nonce","")
+    echostr=request.GET.get("echostr","")
     token="binglewei"
     #字典序排序
     list = [token, timestamp, nonce]
